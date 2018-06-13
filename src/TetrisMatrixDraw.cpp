@@ -205,7 +205,7 @@ void TetrisMatrixDraw::drawShape(int blocktype, uint16_t color, int x_pos, int y
 
 void TetrisMatrixDraw::setNumState(int index, int value, int x_shift)
 {
-    if(index < MAX_NUMBERS) {
+    if(index < TETRIS_MAX_NUMBERS) {
       Serial.println(value);
         this->numstates[index].num_to_draw = value;
         this->numstates[index].x_shift = x_shift;
@@ -226,6 +226,26 @@ void TetrisMatrixDraw::setTime(String time)
         setNumState(pos, number, xShiftClock[pos]);
       }
     }
+}
+
+void TetrisMatrixDraw::setNumbers(int value)
+{
+  String strValue = String(value);
+  if(strValue.length() <= TETRIS_MAX_NUMBERS){
+    this->sizeOfValue = strValue.length();
+    int currentXShift = 0;
+    for (uint8_t pos = 0; pos < this->sizeOfValue; pos++)
+    {
+      currentXShift = TETRIS_DISTANCE_BETWEEN_DIGITS * pos;
+      int number = strValue.substring(pos, pos + 1).toInt();
+      if (number != this->numstates[pos].num_to_draw)
+      {
+        setNumState(pos, number, currentXShift);
+      }
+    }
+  } else {
+    Serial.println("Number too long");
+  }
 }
 
 void TetrisMatrixDraw::drawNumbers(int x, int y, bool displayColon)

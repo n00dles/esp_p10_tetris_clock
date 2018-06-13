@@ -23,7 +23,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 #include <Arduino.h>
 #include <PxMatrix.h>
 
-#define MAX_NUMBERS 9
+#define TETRIS_MAX_NUMBERS 9
+
+#define TETRIS_DISTANCE_BETWEEN_DIGITS 7
 
 // Type that describes the current state of a drawn number
 typedef struct
@@ -43,7 +45,7 @@ class TetrisMatrixDraw
         void drawChar(String letter, uint8_t x, uint8_t y, uint16_t color);
         void drawShape(int blocktype, uint16_t color, int x_pos, int y_pos, int num_rot);
         void setTime(String time);
-        // void setNumbers(int value);
+        void setNumbers(int value);
         void setNumState(int index, int value, int x_shift);
         bool _debug = false;
         uint16_t tetrisColors[9];
@@ -60,7 +62,7 @@ class TetrisMatrixDraw
     private:
         void intialiseColors();
         // void clearNumStates();
-        numstate numstates[MAX_NUMBERS];
+        numstate numstates[TETRIS_MAX_NUMBERS];
         int sizeOfValue;
 };
 
