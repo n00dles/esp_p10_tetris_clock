@@ -21,7 +21,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 #define TetrisMatrixDraw_h
 
 #include <Arduino.h>
-#include <PxMatrix.h>
+#include "Adafruit_GFX.h"
 
 #define TETRIS_MAX_NUMBERS 9
 
@@ -39,8 +39,8 @@ typedef struct
 class TetrisMatrixDraw
 {
     public:
-        TetrisMatrixDraw (PxMATRIX &display);
-        PxMATRIX *display;
+        TetrisMatrixDraw (Adafruit_GFX  &display);
+        Adafruit_GFX  *display;
         void drawNumbers(int x = 0, int y = 0, bool displayColon = false);
         void drawChar(String letter, uint8_t x, uint8_t y, uint16_t color);
         void drawShape(int blocktype, uint16_t color, int x_pos, int y_pos, int num_rot);

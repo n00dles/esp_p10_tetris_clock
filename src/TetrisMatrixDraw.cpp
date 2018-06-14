@@ -20,7 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 #include "TetrisMatrixDraw.h"
 #include "numbers.h"
 
-TetrisMatrixDraw::TetrisMatrixDraw(PxMATRIX &display)	{
+TetrisMatrixDraw::TetrisMatrixDraw(Adafruit_GFX &display)	{
     this->display = &display;
     intialiseColors();
 }
@@ -326,15 +326,15 @@ void TetrisMatrixDraw::drawNumbers(int x, int y, bool displayColon)
 }
 
 void TetrisMatrixDraw::intialiseColors(){
-    this->tetrisRED = this->display->color565(255, 0, 0);
-    this->tetrisGREEN = this->display->color565(0, 255, 0);
-    this->tetrisBLUE = this->display->color565(48, 73, 255);
-    this->tetrisWHITE = this->display->color565(255, 255, 255);
-    this->tetrisYELLOW = this->display->color565(255, 255, 0);
-    this->tetrisCYAN = this->display->color565(0, 255, 255);
-    this->tetrisMAGENTA = this->display->color565(255, 0, 255);
-    this->tetrisORANGE = this->display->color565(255, 96, 0);
-    this->tetrisBLACK = this->display->color565(0, 0, 0);
+    this->tetrisRED = 0xF800;
+    this->tetrisGREEN = 0x07E0;
+    this->tetrisBLUE = 0x325F;
+    this->tetrisWHITE = 0xFFFF;
+    this->tetrisYELLOW = 0xFFE0;
+    this->tetrisCYAN = 0x07FF;
+    this->tetrisMAGENTA = 0xF81F;
+    this->tetrisORANGE = 0xFB00;
+    this->tetrisBLACK = 0x0000;
     
     this->tetrisColors[0] = this->tetrisRED; 
     this->tetrisColors[1] = this->tetrisGREEN; 
