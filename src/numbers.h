@@ -188,9 +188,6 @@ int blocksPerNumber[10] = {SIZE_NUM_0, SIZE_NUM_1, SIZE_NUM_2, SIZE_NUM_3, SIZE_
 // *********************************************************************
 fall_instr getFallinstrByNum(int num, int blockindex)
 {
-  Serial.println("Getting");
-  Serial.println(num);
-  
   if (num == 0)
   {
     return num_0[blockindex];
