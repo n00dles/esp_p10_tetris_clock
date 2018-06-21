@@ -42,11 +42,13 @@ class TetrisMatrixDraw
         TetrisMatrixDraw (Adafruit_GFX  &display);
         Adafruit_GFX  *display;
         void drawNumbers(int x = 0, int y = 0, bool displayColon = false);
+        void drawText(int x = 0, int y = 0);
         void drawChar(String letter, uint8_t x, uint8_t y, uint16_t color);
         void drawShape(int blocktype, uint16_t color, int x_pos, int y_pos, int num_rot);
         void setTime(String time);
         void setNumbers(int value);
         void setNumState(int index, int value, int x_shift);
+        void setText(String txt);
         bool _debug = false;
         uint16_t tetrisColors[9];
         uint16_t tetrisRED;
